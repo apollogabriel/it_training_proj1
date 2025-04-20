@@ -5,9 +5,7 @@ import Login from './views/Login.vue'
 </script>
 
 <template>
-  <header>
-    <h1>HEllo</h1>
-  </header>
+  
   <Login/>
 </template>
 

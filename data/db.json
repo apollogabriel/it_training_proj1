@@ -3,6 +3,10 @@
         {
             "id":"admin",
             "password":"iloveadmin"
+        },
+        {
+            "id":"admin2",
+            "password":"iloveadmin2"
         }
     ]
 }
