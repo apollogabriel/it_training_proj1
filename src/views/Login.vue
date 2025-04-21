@@ -37,54 +37,76 @@ import getCredentials from '../services/getCredentials.js'
 import getCredential from '../services/getCredential.js'
 //import PostList from '../components/PostList.vue'
 //import getPosts from '../services/getPosts'
-
-export default {
-  props:[
-    'data1'
-  ],
-  setup() {
-    const { credentials, credentials2 ,error, load } = getCredentials()
-    load()
-    console.log(credentials)
-    console.log(credentials2)
-    
-    
-
-    const handleClick = () => {
-            //console.log(router)
-            //router.push({name: 'home'})
-            alert(this.username)
-            //load()
-            //console.log(credentials.value)
-            //console.log(credentials2)
-        }
-
-    return { credentials, credentials2, error ,handleClick}
+export default{
+  data() {
+    return {
+      apiData: null,
+    };
   },
-  data(){
-      return{
-          username:'',
-          password:'',
-          credential2:{}
-      
-      }
-  },
-  methods:{
-    clickMe(){
-      const { credential,credential2,error, load2 } = getCredential(this.username)
-      console.log(credential2)
-      load2()
-      //alert(credential)
-      //console.log(credential)
-      console.log(credential)
-      console.log(credential.dep.sc)
-      for(const key in credential){
-        console.log(key +" : "+credential[key])
-      }
-      //return credential2
+  mounted(){
+    const getData = () => {
+      fetch('https://catfact.ninja/fact', {
+        headers: { 'Content-type': 'application/json' },
+      }).then(res=>res.json()).then((response) => {
+        console.log({ response })
+        console.log(response.fact)
+        this.apiData=response.fact
+        //console.log(ret)
+      }).catch((error) => {
+        console.log('Looks like there was a problem: \n', error);
+      });
     }
+    getData()
   }
 }
+
+//export default {
+  // props:[
+  //   'data1'
+  // ],
+  // setup() {
+  //   const { credentials, credentials2 ,error, load } = getCredentials()
+  //   load()
+  //   console.log(credentials)
+  //   console.log(credentials2)
+    
+    
+
+  //   const handleClick = () => {
+  //           //console.log(router)
+  //           //router.push({name: 'home'})
+  //           alert(this.username)
+  //           //load()
+  //           //console.log(credentials.value)
+  //           //console.log(credentials2)
+  //       }
+
+  //   return { credentials, credentials2, error ,handleClick}
+  // },
+  // data(){
+  //     return{
+  //         username:'',
+  //         password:'',
+  //         credential2:{}
+      
+  //     }
+  // },
+  // methods:{
+  //   clickMe(){
+  //     const { credential,credential2,error, load2 } = getCredential(this.username)
+  //     console.log(credential2)
+  //     load2()
+  //     //alert(credential)
+  //     //console.log(credential)
+  //     console.log(credential)
+  //     console.log(credential.dep.sc)
+  //     for(const key in credential){
+  //       console.log(key +" : "+credential[key])
+  //     }
+  //     //return credential2
+  //   }
+  // }
+//}
 
 </script>
 
