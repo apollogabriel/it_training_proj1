@@ -27,6 +27,7 @@
               <input @click="clickMe" type="button" value="Login" />
           </div>
           <div class="signup-link">Not a member? <a href="#">Signup now</a></div>
+          <div>{{ apiData }}{{ password }}</div>
           </form>
       </div>
       </body>
@@ -35,28 +36,45 @@
 <script>
 import getCredentials from '../services/getCredentials.js'
 import getCredential from '../services/getCredential.js'
+import  {createMemoryHistory,createRouter} from 'vue-router'
 //import PostList from '../components/PostList.vue'
 //import getPosts from '../services/getPosts'
 export default{
   data() {
     return {
+      username:'',
+      password:'',
       apiData: null,
     };
   },
   mounted(){
-    const getData = () => {
-      fetch('https://catfact.ninja/fact', {
-        headers: { 'Content-type': 'application/json' },
-      }).then(res=>res.json()).then((response) => {
-        console.log({ response })
-        console.log(response.fact)
-        this.apiData=response.fact
-        //console.log(ret)
-      }).catch((error) => {
-        console.log('Looks like there was a problem: \n', error);
-      });
+    
+    
+  },
+  methods:{
+    clickMe(){
+      const getData = (id) => {
+        fetch('http://localhost:3000/credentials/' + id, {
+          headers: { 'Content-type': 'application/json' },
+        }).then(res=>res.json()).then((response) => {
+          console.log({ response })
+          console.log(response)
+          this.apiData=response.password
+          if(this.password=response.password){
+            console.log(this.password)
+            this.$router.push('/dashboard')
+          }else{
+            console.log('Else')
+          }
+          //console.log(ret)
+        }).catch((error) => {
+          console.log('Looks like there was a problem: \n', error);
+        });
+      }
+      getData(this.username)
+
+
     }
-    getData()
   }
 }
 
