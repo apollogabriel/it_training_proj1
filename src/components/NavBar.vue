@@ -1,15 +1,16 @@
 <template>
     
     <div id="navbar">
-    <a href="#home">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
+    <a href="#home">Add Item</a>
+    <a href="#news"></a>
+    <a href="#contact"></a>
     </div>
 </template>
 
 <style>
 /* Style the navbar */
 #navbar {
+  border-radius: 15px;
   position: sticky;
   top: 0;
   overflow: hidden;

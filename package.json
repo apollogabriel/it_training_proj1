@@ -11,8 +11,10 @@
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
+    "js-alert": "^2.0.0",
     "json": "^11.0.0",
     "json-server": "^1.0.0-beta.3",
+    "notie": "^4.3.1",
     "server": "^1.0.41",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"

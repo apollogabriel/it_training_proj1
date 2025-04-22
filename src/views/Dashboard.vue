@@ -1,14 +1,14 @@
 <template>
     <div>
     <NavBar></NavBar>
-    <h1>Welcome to  Dashboard</h1>
+    <h2>Dashboard List of Inventory</h2>
    <InventoryItemContainer></InventoryItemContainer>
 
-<!-- Code begins here -->
+	<!-- Code begins here -->
 
-<a href="#" class="float">
-<i class="fa fa-plus my-float"></i>
-</a>
+	<a href="#" class="float">
+	<i class="fa fa-plus my-float"></i>
+	</a>
     </div>
 </template>
 
@@ -45,5 +45,9 @@ body{
 
 .my-float{
 	margin-top:22px;
+}
+h2 {
+	font-family: "Lucida Console", "Courier New", monospace;
+	padding: 20px;
 }
 </style>
