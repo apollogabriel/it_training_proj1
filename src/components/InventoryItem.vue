@@ -6,7 +6,7 @@
         </div>
         
         <div id="div1">
-            <div id="div2" @click="clickMe(this.itemno)">{{ btn1 }}</div>
+            <div id="div2" @click="clickMe(this.itemno,this.avail)"><span v-if="avail">Available!</span><span v-else>Unavailable 😢</span></div>
             <div id="div2">Edit</div>
             <div id="div2">Delete</div>
         </div>
@@ -26,24 +26,32 @@ import JSAlert from 'js-alert'
            itemname: {
                type: Object,
                default: () => ({})
+           },
+           avail: {
+               type: Object,
+               default: () => ({})
            }
         },
         data(){
             return{
-                btn1:'Available'
+                btn1:'Available',
+                
             }
         },
         methods:{
-            clickMe(id){
+            clickMe(id,a){
+                console.log(this.props)
                 //JSAlert.alert("Ok.");
                 //JSAlert.alert("Your files have been saved successfully.", "Files Saved", "Got it");
-                if(this.btn1=='Available'){
-                    this.btn1='Unavailable'
-                    JSAlert.alert("Ok change to "+this.btn1+"!");
+                if(a){
+                    //props.avail=false
+                    JSAlert.alert("Ok change to Unavailable!");
                 }else{
-                    JSAlert.alert("Ok change to "+this.btn1+"!");
-                    this.btn1='Available'
+                    //props.avail=true
+                    JSAlert.alert("Ok change to Available!");
+                    
                 }
+                //console.log(props.avail)
                 // JSAlert.confirm("Are you sure you want to change this "+this.btn1+"?").then(function(result) {
 
                 // // Check if pressed yes

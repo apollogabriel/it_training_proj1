@@ -1,6 +1,6 @@
 <template>
     <div class="thing" id="wrapper" v-for="x in itemnos" >
-        <InventoryItem v-bind:itemno="x.itemno" v-bind:itemname="x.itemname"/>
+        <InventoryItem v-bind:itemno="x.itemno" v-bind:itemname="x.itemname"  v-bind:avail="x.avail"/>
     </div>
 </template>
 <script>
@@ -10,7 +10,7 @@ export  default{
     data(){
         return{
             
-            itemnos:[{itemno:1,itemname:'Apollo'},{itemno:2,itemname:'Jing'}]
+            itemnos:[{itemno:1,itemname:'Apollo',avail:true},{itemno:2,itemname:'Jing',avail:false}]
 
         }
     }
