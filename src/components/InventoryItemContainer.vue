@@ -9,7 +9,7 @@ export  default{
     components: {InventoryItem},
     data(){
         return{
-            itemnames:['APollo','Dell'],
+            
             itemnos:[{itemno:1,itemname:'Apollo'},{itemno:2,itemname:'Jing'}]
 
         }
