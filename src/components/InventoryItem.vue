@@ -1,13 +1,14 @@
 <template>
     <div>
         <div>
+            <h1>Item ID: {{ id }}</h1>
             <h3>Item No: {{ itemno }}</h3>
             <h3>Item : {{ itemname }}</h3>
         </div>
         
         <div id="div1">
-            <div id="div2" @click="clickMe(this.itemno,this.avail)"><span v-if="avail">Available!</span><span v-else>Unavailable 😢</span></div>
-            <div id="div2">Edit</div>
+            <div id="div2" @click="clickMe(this.id,this.avail)"><span v-if="avail">Available!</span><span v-else>Unavailable 😢</span></div>
+            <div id="div2" @click="updateMe(this.id)">Edit</div>
             <div id="div2">Delete</div>
         </div>
     </div>
@@ -19,6 +20,10 @@ import JSAlert from 'js-alert'
 
     export default{
         props:{
+            id: {
+               type: Object,
+               default: () => ({}),
+           },
             itemno: {
                type: Object,
                default: () => ({}),
@@ -40,7 +45,9 @@ import JSAlert from 'js-alert'
         },
         methods:{
             clickMe(id,a){
-                console.log(this.props)
+                //JSAlert.alert(id);
+                this.$store.dispatch("Update_Inventory_Avail", id);
+                //console.log(this.props)
                 //JSAlert.alert("Ok.");
                 //JSAlert.alert("Your files have been saved successfully.", "Files Saved", "Got it");
                 if(a){
@@ -64,6 +71,27 @@ import JSAlert from 'js-alert'
                 // JSAlert.alert("Ok done change to "+this.btn1+"!");
 
                 // });
+            },
+            updateMe(id){
+                JSAlert.alert("You updated and inventory!");
+                var mydata={"id":"4","itemno":"5","itemname":'Amari',"avail":true}
+                var id=4;
+                fetch(`http://localhost:3000/inventory/${id}`, {
+                    method: "PUT",
+                    body: JSON.stringify(mydata),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }).then(() => {
+                // Perform any necessary actions after the update is successful
+                });
+            },
+            deleteMe(){
+                fetch('http://localhost:3000/inventory/' + id, {
+                    method: 'DELETE',
+                })
+                .then(res => res.text()) // or res.json()
+                .then(res => console.log(res))
             }
         },
        

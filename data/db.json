@@ -1,12 +1,62 @@
 {
-    "credentials":[
-        {
-            "id":"admin",
-            "password":"iloveadmin"
-        },
-        {
-            "id":"admin2",
-            "password":"iloveadmin2"
-        }
-    ]
+  "credentials": [
+    {
+      "id": "admin",
+      "password": "iloveadmin"
+    },
+    {
+      "id": "admin2",
+      "password": "iloveadmin2"
+    }
+  ],
+  "inventory": [
+    {
+      "id": "1",
+      "itemno": 1,
+      "itemname": "Apollo",
+      "avail": true
+    },
+    {
+      "id": "2",
+      "itemno": 2,
+      "itemname": "Jing",
+      "avail": true
+    },
+    {
+      "id": "3",
+      "itemno": 3,
+      "itemname": "Tella",
+      "avail": true
+    },
+    {
+      "id": "4",
+      "itemno": "5",
+      "itemname": "Amari",
+      "avail": true
+    },
+    {
+      "id": "4",
+      "itemno": 4,
+      "itemname": "Pia",
+      "avail": true
+    },
+    {
+      "id": 4,
+      "itemno": 4,
+      "itemname": "Pia",
+      "avail": true
+    },
+    {
+      "id": "4",
+      "itemno": 4,
+      "itemname": "Pia",
+      "avail": true
+    },
+    {
+      "id": "4",
+      "itemno": 4,
+      "itemname": "Pia",
+      "avail": true
+    }
+  ]
 }

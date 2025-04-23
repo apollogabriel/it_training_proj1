@@ -1,12 +1,45 @@
 <template>
     
     <div id="navbar">
-    <a href="#home">Add Item</a>
-    <a href="#news"></a>
+    <a  @click="clickMe">Add Item</a>
+    <a  ></a>
     <a href="#contact"></a>
     </div>
 </template>
+<script>
+import JSAlert from 'js-alert'
 
+    export default{
+      methods: {
+        clickMe() {
+          var mydata={"id":4,"itemno":4,"itemname":'Pia',"avail":true}
+          this.$store.dispatch("Insert_Inventory", mydata);
+          JSAlert.alert("You added and inventory!");
+          this.$store.dispatch('getItems')
+          console.log(this.$store.state.itemnos2)
+
+          fetch('http://localhost:3000/inventory', {
+            method: 'POST',
+            header: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'      
+            },
+            body: JSON.stringify(mydata)
+        })
+        //.then(() => this.$router.push('/'))
+        .catch(err => console.log(err))
+        },
+        
+        deleteMe(){
+          fetch('http://localhost:3000/inventory/' + id, {
+            method: 'DELETE',
+          })
+          .then(res => res.text()) // or res.json()
+          .then(res => console.log(res))
+        }
+      }
+    }
+</script>
 <style>
 /* Style the navbar */
 #navbar {

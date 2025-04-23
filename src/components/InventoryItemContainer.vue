@@ -1,19 +1,61 @@
 <template>
-    <div class="thing" id="wrapper" v-for="x in itemnos" >
-        <InventoryItem v-bind:itemno="x.itemno" v-bind:itemname="x.itemname"  v-bind:avail="x.avail"/>
+  <NavBar></NavBar>
+    <div class="thing" id="wrapper" v-for="x in items" >
+        <InventoryItem v-bind:id="x.id" v-bind:itemno="x.itemno" v-bind:itemname="x.itemname"  v-bind:avail="x.avail"/>
     </div>
+    
 </template>
 <script>
+import NavBar from '@/components/NavBar.vue';
 import InventoryItem from './InventoryItem.vue';
+//import { createStore } from '@/store/index.js';
+//import {createStore} from 'vuex'
+//export default createStore()
+
+//const itemStore = createStore()
+
+//itemStore.getItems()
+
+
+
+
 export  default{
-    components: {InventoryItem},
+    components: {InventoryItem,NavBar},
+    setup() {
+      const count = ''
+      //console.log($store)
+      // expose to template and other options API hooks
+      
+      return {
+        count
+      }
+    },
     data(){
         return{
             
-            itemnos:[{itemno:1,itemname:'Apollo',avail:true},{itemno:2,itemname:'Jing',avail:false}]
-
+            //itemnos:[{itemno:1,itemname:'Apollo',avail:true},{itemno:2,itemname:'Jing',avail:false}],
+            
+        } 
+    },
+    mounted(){
+      this.$store.dispatch('getItems')
+      console.log(this.$store.state.itemnos2)
+    },
+    methods: {
+        clickMe() {
+          var mydata={"id":4,"itemno":4,"itemname":'Pia',"avail":true}
+          this.$store.dispatch("Insert_Inventory", mydata);
+          JSAlert.alert("You added and inventory!");
+          this.$store.dispatch('getItems')
+          console.log(this.$store.state.itemnos2)
         }
-    }
+      },
+    computed:{
+      items(){ 
+        //this.$store.dispatch('getItems')
+        return this.$store.state.itemnos2
+      }
+  }
 }
 </script>
 

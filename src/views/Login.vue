@@ -27,7 +27,7 @@
               <input @click="clickMe" type="button" value="Login" />
           </div>
           <div class="signup-link">Not a member? <a href="#">Signup now</a></div>
-          <div>{{ apiData }}{{ password }}</div>
+          
           </form>
       </div>
       </body>
@@ -236,5 +236,7 @@ form .button input:hover {
 }
 form .signup-link a:hover {
   text-decoration: underline;
+  
 }
+
 </style>

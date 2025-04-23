@@ -1,6 +1,6 @@
 <template>
     <div>
-    <NavBar></NavBar>
+    
     <h2>Dashboard List of Inventory</h2>
    <InventoryItemContainer></InventoryItemContainer>
 
@@ -17,7 +17,10 @@ import NavBar from '@/components/NavBar.vue';
 import InventoryItemContainer from '@/components/InventoryItemContainer.vue';
 
 export default {
-    components:{NavBar,InventoryItemContainer}
+    components:{NavBar,InventoryItemContainer},
+	mounted(){
+		
+	}
 }
 </script>
 
