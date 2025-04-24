@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="div_scroll">
     
     <h2>Dashboard List of Inventory</h2>
    <InventoryItemContainer></InventoryItemContainer>
@@ -53,4 +53,6 @@ h2 {
 	font-family: "Lucida Console", "Courier New", monospace;
 	padding: 20px;
 }
+
+
 </style>

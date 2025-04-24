@@ -1,8 +1,20 @@
 <template>
   <NavBar></NavBar>
+  
+  <div >
+    <input id="input_float" v-model="searchTerm" placeholder="Search items..." />
+    
     <div class="thing" id="wrapper" v-for="x in items" >
-        <InventoryItem v-bind:id="x.id" v-bind:itemno="x.itemno" v-bind:itemname="x.itemname"  v-bind:avail="x.avail"/>
+        
+        <div v-if="searchTerm === x.id">
+          <InventoryItem v-bind:id="x.id" v-bind:itemno="x.itemno" v-bind:itemname="x.itemname"  v-bind:avail="x.avail" v-bind:date_entry="x.date_entry" v-bind:company="x.company"/>
+        </div>
+        <div v-else-if="searchTerm ===''">
+          <InventoryItem v-bind:id="x.id" v-bind:itemno="x.itemno" v-bind:itemname="x.itemname"  v-bind:avail="x.avail" v-bind:date_entry="x.date_entry" v-bind:company="x.company"/>
+        </div>
     </div>
+  </div>
+    
     
 </template>
 <script>
@@ -31,15 +43,16 @@ export  default{
       }
     },
     data(){
+      
         return{
-            
+          
             //itemnos:[{itemno:1,itemname:'Apollo',avail:true},{itemno:2,itemname:'Jing',avail:false}],
-            
+            //itemsnos:this.$store.state.itemnos2
+            searchTerm:''
         } 
     },
     mounted(){
       this.$store.dispatch('getItems')
-      console.log(this.$store.state.itemnos2)
     },
     methods: {
         clickMe() {
@@ -53,7 +66,9 @@ export  default{
     computed:{
       items(){ 
         //this.$store.dispatch('getItems')
-        return this.$store.state.itemnos2
+        var data1=this.$store.state.itemnos2
+
+        return data1
       }
   }
 }
@@ -71,6 +86,7 @@ export  default{
   
   border-left: 0 solid #00ff99;
   transition: border-left 300ms ease-in-out, padding-left 300ms ease-in-out;
+  
 }
 
 .thing:hover {
@@ -89,6 +105,15 @@ export  default{
 #wrapper {
     display: flex;
     flex-wrap: wrap;
+}
+
+#input_float {
+  
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  float: right;
+  margin: 10px;
 }
 
 </style>

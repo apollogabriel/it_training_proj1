@@ -5,9 +5,18 @@ import Login from './views/Login.vue'
 </script>
 
 <template>
-  <RouterView />
+  <div>
+    <RouterView />
+  </div>
+  
 </template>
 
-<style scoped>
-
+<style>
+#div_scroll{
+  overflow-y:auto;
+  border-style: double;
+  height: 800px;
+  width: 500px;
+  background-color: powderblue;
+}
 </style>

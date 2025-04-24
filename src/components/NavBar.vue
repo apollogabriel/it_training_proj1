@@ -2,7 +2,7 @@
     
     <div id="navbar">
     <a  @click="clickMe">Add Item</a>
-    <a  ></a>
+    <a  >Add User</a>
     <a href="#contact"></a>
     </div>
 </template>
@@ -28,14 +28,6 @@ import JSAlert from 'js-alert'
         })
         //.then(() => this.$router.push('/'))
         .catch(err => console.log(err))
-        },
-        
-        deleteMe(){
-          fetch('http://localhost:3000/inventory/' + id, {
-            method: 'DELETE',
-          })
-          .then(res => res.text()) // or res.json()
-          .then(res => console.log(res))
         }
       }
     }
