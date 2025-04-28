@@ -3,12 +3,17 @@
     {
       "id": "admin",
       "password": "iloveadmin",
-      "log":false
+      "log": false
     },
     {
       "id": "admin2",
       "password": "iloveadmin2",
-      "log":false
+      "log": false
+    }
+  ],
+  "tools":[
+    {
+      "lastidinventory":"21"
     }
   ],
   "inventory": [
@@ -83,6 +88,108 @@
       "avail": true,
       "date_entry": "2025-04-25",
       "company": "Apollo Co."
+    },
+    {
+      "id": "10",
+      "itemno": "2",
+      "itemname": "Jing",
+      "avail": true,
+      "date_entry": "2025-04-25",
+      "company": "Apollo Co."
+    },
+    {
+      "id": "11",
+      "itemno": "2",
+      "itemname": "Jing",
+      "avail": true,
+      "date_entry": "2025-04-25",
+      "company": "Apollo Co."
+    },
+    {
+      "id": "12",
+      "itemno": "2",
+      "itemname": "Jing",
+      "avail": true,
+      "date_entry": "2025-04-25",
+      "company": "Apollo Co."
+    },
+    {
+      "id": "13",
+      "itemno": "2",
+      "itemname": "Jing",
+      "avail": true,
+      "date_entry": "2025-04-25",
+      "company": "Apollo Co."
+    },
+    {
+      "id": "14",
+      "itemno": "2",
+      "itemname": "Jing",
+      "avail": true,
+      "date_entry": "2025-04-25",
+      "company": "Apollo Co."
+    },
+    {
+      "id": "15",
+      "itemno": "2",
+      "itemname": "Jing",
+      "avail": true,
+      "date_entry": "2025-04-25",
+      "company": "Apollo Co."
+    },
+    {
+      "id": "16",
+      "itemno": "2",
+      "itemname": "Jing",
+      "avail": true,
+      "date_entry": "2025-04-25",
+      "company": "Apollo Co."
+    },
+    {
+      "id": "17",
+      "itemno": "2",
+      "itemname": "Jing",
+      "avail": true,
+      "date_entry": "2025-04-25",
+      "company": "Apollo Co."
+    },
+    {
+      "id": "18",
+      "itemno": "2",
+      "itemname": "Jing",
+      "avail": true,
+      "date_entry": "2025-04-25",
+      "company": "Apollo Co."
+    },
+    {
+      "id": "19",
+      "itemno": "2",
+      "itemname": "Jing",
+      "avail": true,
+      "date_entry": "2025-04-25",
+      "company": "Apollo Co."
+    },
+    {
+      "id": "20",
+      "itemno": "2",
+      "itemname": "Jing",
+      "avail": true,
+      "date_entry": "2025-04-25",
+      "company": "Apollo Co."
+    },
+    {
+      "id": "21",
+      "itemno": "2",
+      "itemname": "Jing",
+      "avail": true,
+      "date_entry": "2025-04-25",
+      "company": "Apollo Co."
+    },
+    {
+      "id": 4,
+      "itemno": 4,
+      "itemname": "Pia",
+      "avail": true
     }
   ]
 }

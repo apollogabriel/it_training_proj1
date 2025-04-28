@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-import Login from './views/Login.vue'
+
 </script>
 
 <template>
@@ -17,6 +17,6 @@ import Login from './views/Login.vue'
   border-style: double;
   height: 800px;
   width: 500px;
-  background-color: powderblue;
+  background-color: rgb(223, 233, 235);
 }
 </style>

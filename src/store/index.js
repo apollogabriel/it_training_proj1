@@ -7,7 +7,9 @@ export default createStore({
         itemnos:[{itemno:1,itemname:'Apollo',avail:true},{itemno:2,itemname:'Jing',avail:false}],
         itemnos2:[],
         posts: [],
-        someString: 'etc'
+        someString: 'etc',
+        login:true,
+        dashboard:false
       },
       getters:{
         // arrow function

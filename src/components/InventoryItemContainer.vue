@@ -1,5 +1,4 @@
 <template>
-  <NavBar></NavBar>
   
   <div >
     <input id="input_float" v-model="searchTerm" placeholder="Search items..." />
@@ -12,7 +11,7 @@
         <div v-else-if="searchTerm ===''">
           <InventoryItem v-bind:id="x.id" v-bind:itemno="x.itemno" v-bind:itemname="x.itemname"  v-bind:avail="x.avail" v-bind:date_entry="x.date_entry" v-bind:company="x.company"/>
         </div>
-    </div>
+      </div>
   </div>
     
     
@@ -20,6 +19,7 @@
 <script>
 import NavBar from '@/components/NavBar.vue';
 import InventoryItem from './InventoryItem.vue';
+import NavBar2 from '@/components/NavBar2.vue';
 //import { createStore } from '@/store/index.js';
 //import {createStore} from 'vuex'
 //export default createStore()
@@ -32,7 +32,7 @@ import InventoryItem from './InventoryItem.vue';
 
 
 export  default{
-    components: {InventoryItem,NavBar},
+    components: {InventoryItem,NavBar,NavBar2},
     setup() {
       const count = ''
       //console.log($store)

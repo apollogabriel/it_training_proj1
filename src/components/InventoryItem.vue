@@ -23,6 +23,7 @@ import JSAlert from 'js-alert'
 
     export default{
         props:{
+            
             id: {
                type: String,
                default: () => ({}),

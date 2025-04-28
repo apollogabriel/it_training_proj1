@@ -1,7 +1,8 @@
 <template>
+	
     <div id="div_scroll">
-    
-    <h2>Dashboard List of Inventory</h2>
+	<NavBar></NavBar>
+    <h2>List of Inventory</h2>
    <InventoryItemContainer></InventoryItemContainer>
 
 	<!-- Code begins here -->
