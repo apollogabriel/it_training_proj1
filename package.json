@@ -4,13 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"vite\" \"json-server --watch data/db.json\"",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
+    "bootstrap": "^5.3.5",
+    "concurrently": "^9.1.2",
     "js-alert": "^2.0.0",
     "json": "^11.0.0",
     "json-server": "^1.0.0-beta.3",

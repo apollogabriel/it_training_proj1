@@ -42,8 +42,8 @@ import  {createMemoryHistory,createRouter} from 'vue-router'
 export default{
   data() {
     return {
-      username:'',
-      password:'',
+      username:'admin',
+      password:'iloveadmin',
       apiData: null,
     };
   },

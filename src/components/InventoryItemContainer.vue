@@ -1,7 +1,7 @@
 <template>
   
   <div >
-    <input id="input_float" v-model="searchTerm" placeholder="Search items..." />
+    <input id="input_float" v-model="searchTerm" placeholder="Search item id..." />
     
     <div class="thing" id="wrapper" v-for="x in items" >
         

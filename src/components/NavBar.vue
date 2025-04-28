@@ -1,4 +1,5 @@
 <template>
+  
     <nav class="nav-container">
         <ul class="rigth-side">
             <li><a  @click="showModal = !showModal">Add Item</a></li>
@@ -12,7 +13,7 @@
     </nav>
 
     
-      <div v-if="showModal">
+      <div class="container" v-if="showModal">
         <!--
       you can use custom content here to overwrite
       default content
@@ -42,27 +43,52 @@ import JSAlert from 'js-alert'
           itemname:'',
           company:'',
           dateentry:'',
+          lastid:''
         }
       },
       methods: {
         clickMe() {
           
-          var mydata={"id":4,"itemno":4,"itemname":this.itemname,"avail":true,"date_entry":this.dateentry,"company":this.company}
-          this.$store.dispatch("Insert_Inventory", mydata);
-          JSAlert.alert("You added and inventory!");
-          this.$store.dispatch('getItems')
-          console.log(this.$store.state.itemnos2)
+          var res = fetch('http://localhost:3000/tools/e93d', {
+              method: 'GET',
+          }).then(res => res.json()) // or res.json()
+          .then(res => this.lastid=(res.lastiditem+1)).then(() => {
+              // Perform any necessary actions after the update is successful
+              //this.$store.dispatch('getItems')
+              console.log('AAAAA')
+              console.log(this.lastid)
+              var mydata={"id":this.lastid,"itemno":this.lastid,"itemname":this.itemname,"avail":true,"date_entry":this.dateentry,"company":this.company}
+              console.log(mydata)
+              this.$store.dispatch("Insert_Inventory", mydata);
+              JSAlert.alert("You added and inventory!");
+              this.$store.dispatch('getItems')
+              console.log(this.$store.state.itemnos2)
 
-          fetch('http://localhost:3000/inventory', {
-            method: 'POST',
-            header: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'      
-            },
-            body: JSON.stringify(mydata)
-        })
-        //.then(() => this.$router.push('/'))
-        .catch(err => console.log(err))
+              fetch('http://localhost:3000/inventory', {
+                method: 'POST',
+                header: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'      
+                },
+                body: JSON.stringify(mydata)
+              }).then(() => {
+                this.itemname=''
+                this.company=''
+                this.dateentry=''
+                let mydata2={"lastiditem":this.lastid,"id":"e93d"}
+                fetch(`http://localhost:3000/tools/e93d`, {
+                    method: "PUT",
+                    body: JSON.stringify(mydata2),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }).then(() => {
+                    // Perform any necessary actions after the update is successful
+                    this.$store.dispatch('getItems')
+                })
+              }).catch(err => console.log(err))
+            });
+          
         }
       }
     }
